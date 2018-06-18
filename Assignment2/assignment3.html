@@ -34,10 +34,33 @@
 	
 	<div>Questionn 6</div>
 	<div class="answer" id="answer6"></div>
+	
+	<div>Question 7</div>
+
 
 	<div>Question 8</div>
 	<button onclick="showAnswer8()">Answer 8</button>
 	<div class="answer" id="answer8"></div>
+
+	<div>Question 12</div>
+	<button>
+		<a href="https://unmesh54.github.io/Assignment2/sticky.html" target="_blank">Click Here to see!</a>
+	</button>
+
+	<div>Question 9</div>
+	<form class="check-palm myfrm">
+		<input type="text" required="true" placeholder="enter a string" id="palm">
+		<input type="button" id="check-palm-btn" value="Check if Palindrom or not" onclick="showAnswer9()">
+	</form>
+	<div class="answer" id="answer9"></div>
+
+	<div>Question 10</div>
+	<form class="check-fib myfrm">
+		<input type="number" required="true" placeholder="enter a number" id="fib">
+		<input type="button" id="check-fib-btn" value="Find Fibonacci Series">
+	</form>
+	<div class="answer" id="answer10"></div>
+
 
 	<script>
 		function showAnswer1(){
@@ -86,6 +109,10 @@
 				document.getElementById("answer6").innerHTML = "function declaration can be omitted in function expression"
 			}
 
+			function showAnswer7(){
+
+			}
+
 			function showAnswer8(){
 			var hourss = new Date().getHours();
 	          if (hourss > 5 && hourss < 12) {
@@ -100,7 +127,33 @@
 	            document.body.style.background = "black";
 	           	document.getElementById("answer8").innerHTML = "Good Night!"
 	          }
-        }
+        	}
+
+        	function showAnswer9(){
+				palindrome(document.getElementById("palm").value);
+        	}
+
+        	function palindrome(str){
+				var re = /[\W_]/g;
+				var lowRegStr = str.toLowerCase().replace(re, '');
+				var reverseStr = lowRegStr.split('').reverse().join('');
+				if (reverseStr === lowRegStr) document.getElementById("answer9").innerHTML = "Given string is a Palimdrome";
+				else document.getElementById("answer9").innerHTML = "Given string is not a Palimdrome";
+			}
+
+			function generateFib(num){
+			var fib = [];
+		    fib[0] = 0;
+		    fib[1] = 1;
+		    for(i=2; i<=num; i++)
+		    {
+		        fib[i] = fib[i-2] + fib[i-1];
+		        var currInner = document.getElementById("rslt10").innerHTML;
+			    document.getElementById("answer10").innerHTML = currInner + "&nbsp" + fib[i];
+		        console.log(fib[i]);
+		    }
+		}
+
 
  
 
